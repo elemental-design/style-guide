@@ -1,0 +1,50 @@
+{
+  "name": "@elemental-design/styleguide-examples-sketch",
+  "private": true,
+  "version": "0.0.1",
+  "description": "Generate a cross-platform style guide from a JSON theme based on our schema.",
+  "main": "index.js",
+  "skpm": {
+    "main": "style-guide.sketchplugin",
+    "manifest": "./manifest.json"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "skpm-build",
+    "watch": "skpm-build --watch",
+    "render": "skpm-build --watch --run",
+    "render:once": "skpm-build --run",
+    "postinstall": "npm run build && skpm-link"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elemental-design/style-guide.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elemental-design/style-guide/issues"
+  },
+  "homepage": "https://github.com/elemental-design/style-guide#readme",
+  "dependencies": {
+    "@mdx-js/react": "^1.5.7",
+    "chroma-js": "^2.1.0",
+    "elemental-react": "^0.1.1",
+    "react": "^16.13.0",
+    "react-native-web": "^0.12.2",
+    "react-primitives": "^0.8.0",
+    "react-primitives-svg": "0.0.3",
+    "react-sketchapp": "^3.1.0",
+    "react-test-renderer": "^16.13.0",
+    "styled-components": "^5.0.1",
+    "styled-system": "^5.1.5"
+  },
+  "devDependencies": {
+    "@skpm/builder": "^0.4.0",
+    "@types/chroma-js": "^2.0.0",
+    "@types/react": "^16.9.23",
+    "@types/styled-components": "^5.0.1",
+    "@types/styled-system": "^5.1.9"
+  }
+}
