@@ -4,6 +4,7 @@
   "description": "Generate a cross-platform style guide from a JSON theme based on our schema.",
   "main": "lib/bundle.web.js",
   "sketch": "lib/bundle.sketch.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:js": "rollup -c",
