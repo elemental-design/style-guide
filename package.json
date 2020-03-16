@@ -5,6 +5,7 @@
   "main": "lib/bundle.web.js",
   "sketch": "lib/bundle.sketch.js",
   "types": "lib/index.d.ts",
+  "private": false,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:js": "rollup -c",
