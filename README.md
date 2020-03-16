@@ -1,6 +1,6 @@
 # Elemental Style Guide
 
-Generate a **cross-platform** style guide from a JSON theme based on our schema.
+Generate a **cross-platform** style guide from a JSON theme based on a design system schema.
 
 **Supported Outputs**
 
