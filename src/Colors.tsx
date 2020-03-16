@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { ComponentProps, ReactNode } from 'react';
 import { Box, Headline, Text, Row } from 'elemental-react';
 import chroma from 'chroma-js';
 // import { useTranslation } from 'react-i18next';
 
-import Section from  './components/Section';
+import Section from './components/Section';
+import Code from './components/Code';
 
-const textColor = (hex) => {
+const textColor = (hex: string) => {
   const vsWhite = chroma.contrast(hex, 'white');
   if (vsWhite > 4) {
     return '#FFF';
@@ -16,9 +17,9 @@ const textColor = (hex) => {
 };
 
 
-const Ampersand = ({ color, ...props }) => <Text fontSize={42} fontFamily="Helvetica" color={textColor(color)} {...props} />;
+const Ampersand = ({ color, ...props }: ComponentProps<typeof Text> & { color: string }) => <Text fontSize={42} fontFamily="Helvetica" color={textColor(color)} {...props} />;
 
-const SwatchTile = props => <Box {...props} />;
+const SwatchTile = (props: ComponentProps<typeof Box>) => <Box {...props} />;
 
 SwatchTile.defaultProps = {
   alignItems: 'center',
@@ -28,7 +29,16 @@ SwatchTile.defaultProps = {
   bg: 'black',
 }
 
-const Swatch = ({ rounded, id, index, name, hex }) => (
+interface SwatchProps {
+  rounded?: boolean,
+  id?: string,
+  index?: number,
+  name?: string,
+  hex: string,
+};
+
+
+const Swatch = ({ rounded, id, index, name, hex }: SwatchProps) => (
   <Box alignItems="center">
     <SwatchTile name={`Swatch ${name}`} bg={hex}>
       <Ampersand color={hex}>
@@ -39,19 +49,29 @@ const Swatch = ({ rounded, id, index, name, hex }) => (
       {index === 0 ? '50' : `${index}00`}
     </Text>
     <Text color="black" mb={3}>{hex}</Text>
-    <Box borderRadius={3} bg="rgba(27,31,35,.1)" pr={2} pl={2} pt={1} pb={1} alignItems="center">
-      <Text name="Swatch Name" fontSize={18}>
-        <Text color="#000" fontFamily="Courier">
-          {`${id}.${index}`}
-        </Text>
-      </Text>
-    </Box>
+    <Code>
+      {`${id}.${index}`}
+    </Code>
   </Box>
 );
 
-const Colors = ({ colors }) => {
+interface ColorsProps { // TODO:
+  colors: {
+    families: {
+      [key: string]: string[],
+    },
+    keys: {
+      [key: string]: string,
+    },
+    colors: {
+      [key: string]: string,
+    },
+  }
+};
+
+const Colors = ({ colors }: ColorsProps) => {
   // const { t } = useTranslation('colors');
-  const t = n => n;
+  const t = (n: string) => n;
 
   const colorFamilies = Object.entries(colors.families).map(([id, val]) => ({ id, colors: val }))
     .filter(({ id }) => !['blacks', 'whites'].includes(id));

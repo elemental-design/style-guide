@@ -3,19 +3,21 @@
 import colors from './colors';
 import typography from './typography';
 
-const breakpoints = [
+const breakpointOrder = [
   '601px',
   '769px',
   '1025px',
 ];
 
-// aliases
-breakpoints.mobile = breakpoints[0];
-breakpoints.tablet = breakpoints[1];
-breakpoints.desktop = breakpoints[2];
-breakpoints.m = breakpoints[0];
-breakpoints.t = breakpoints[1];
-breakpoints.d = breakpoints[2];
+const breakpoints = {
+  ...breakpointOrder,
+  mobile: breakpointOrder[0],
+  tablet: breakpointOrder[1],
+  desktop: breakpointOrder[2],
+  m: breakpointOrder[0],
+  t: breakpointOrder[1],
+  d: breakpointOrder[2],
+};
 
 
 

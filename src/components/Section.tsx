@@ -1,7 +1,13 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { Box, Headline, Text, Line } from 'elemental-react';
 
-const Section = ({ title, description, children }) => (
+interface SectionProps {
+  title: string,
+  description?: string,
+  children: ReactNode,
+};
+
+const Section = ({ title, description, children }: SectionProps) => (
   <Box>
     <Box p={80}>
       <Headline.H2 mb={4}>

@@ -2,15 +2,14 @@
   "name": "style-guide",
   "version": "0.0.1",
   "description": "Generate a cross-platform style guide from a JSON theme based on our schema.",
-  "main": "src/index.js",
-  "sketch": "src/index.js",
-  "skpm": {
-    "main": "style-guide.sketchplugin",
-    "manifest": "./manifest.json"
-  },
+  "main": "lib/bundle.web.js",
+  "sketch": "lib/bundle.sketch.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run typescript:once && skpm-build",
+    "build:js": "rollup -c",
+    "build:types": "tsc -d true --emitDeclarationOnly --declarationDir lib",
+    "build": "npm run clean && npm run build:js && npm run build:types",
+    "clean": "rm -rf lib/",
     "watch": "skpm-build --watch & npm run typescript",
     "render": "skpm-build --watch --run & npm run typescript",
     "render:once": "npm run typescript:once && skpm-build --run",
@@ -33,7 +32,6 @@
   "dependencies": {
     "@mdx-js/react": "^1.5.7",
     "chroma-js": "^2.1.0",
-    "elemental-react": "^0.1.1",
     "react": "^16.13.0",
     "react-native-web": "^0.12.2",
     "react-primitives": "^0.8.0",
@@ -44,10 +42,25 @@
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.7",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.8.7",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/preset-typescript": "^7.8.3",
+    "@rollup/plugin-commonjs": "^11.0.2",
+    "@rollup/plugin-json": "^4.0.2",
+    "@rollup/plugin-node-resolve": "^7.1.1",
     "@types/chroma-js": "^2.0.0",
     "@types/react": "^16.9.23",
     "@types/styled-components": "^5.0.1",
     "@types/styled-system": "^5.1.9",
+    "elemental-react": "^0.1.1",
+    "rollup": "^2.0.3",
+    "rollup-plugin-babel": "^4.4.0",
     "typescript": "^3.8.3"
+  },
+  "peerDependencies": {
+    "react": "16.x"
   }
 }

@@ -31,6 +31,7 @@
     "@mdx-js/react": "^1.5.7",
     "chroma-js": "^2.1.0",
     "elemental-react": "^0.1.1",
+    "gray-matter": "^4.0.2",
     "react": "^16.13.0",
     "react-native-web": "^0.12.2",
     "react-primitives": "^0.8.0",
@@ -41,10 +42,13 @@
     "styled-system": "^5.1.5"
   },
   "devDependencies": {
-    "@skpm/builder": "^0.4.0",
+    "@mdx-js/loader": "^1.5.7",
+    "@mdx-js/mdx": "^1.5.7",
+    "@skpm/builder": "^0.5.16",
     "@types/chroma-js": "^2.0.0",
     "@types/react": "^16.9.23",
     "@types/styled-components": "^5.0.1",
-    "@types/styled-system": "^5.1.9"
+    "@types/styled-system": "^5.1.9",
+    "mdx-loader-primitives": "^1.0.0"
   }
 }

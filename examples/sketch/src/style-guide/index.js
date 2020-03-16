@@ -4,6 +4,7 @@ import typography from '../styles/typography';
 import { Colors, Typography } from '@elemental-design/style-guide';
 // import Components from './components';
 
+import GettingStarted from '../docs/getting-started';
 
 const pages = [{
   name: 'Colours',
@@ -21,8 +22,15 @@ const pages = [{
     fontSizeOrder: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'body', 'body_small', 'caption', 'overline'],
   },
   screens: [{
-    name: 'Typography Palette',
+    name: 'Typography',
     component: Typography,
+  }],
+}, {
+  name: 'Getting Started',
+  type: 'getting-started',
+  screens: [{
+    name: 'Getting Started',
+    component: GettingStarted,
   }],
 }/*, {
   name: 'Components',
